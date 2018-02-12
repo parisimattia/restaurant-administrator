@@ -1,0 +1,20 @@
+{
+  "name": "restaurant-administrator",
+  "version": "1.0.0",
+  "description": "'A fake restaurant api administrator'",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "parisimattia <mattia_parisi@hotmail.it>",
+  "license": "MIT",
+  "dependencies": {
+    "restaurant-package": "^1.0.5"
+  },
+  "devDependencies": {},
+  "keywords": [
+    "restaurant",
+    "administration",
+    "api"
+  ]
+}
