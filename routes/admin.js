@@ -27,9 +27,9 @@ router.get('/:status', function (req,res){
 })
 
 router.delete('/:code', function (req,res){
-  if (Number.isInteger(parseInt(req.params.code)) && req.params.code >= 0
-      && orders.getOrderIndex(req.params.code) != null
-      && orders.getOrderIndex(req.params.code) != "error"){
+  var index = orders.getOrderIndex(req.params.code);
+
+  if (Number.isInteger(parseInt(req.params.code)) && req.params.code >= 0 && index != null && index!= "error"){
     res.status(200).json(orders.deleteOrder(req.params.code));
   } else if (products.getOrderIndex(req.params.code) == null){
     res.status(404).json({ message : 'Source not found'});
@@ -39,12 +39,12 @@ router.delete('/:code', function (req,res){
 })
 
 router.put('/:code', function (req,res){
-  if (Number.isInteger(parseInt(req.params.code)) && req.params.code >= 0
-      && orders.getOrderIndex(req.params.code) != null
-      && orders.getOrderIndex(req.params.code) != "error"
+  var index = orders.getOrderIndex(req.params.code);
+
+  if (Number.isInteger(parseInt(req.params.code)) && req.params.code >= 0  && index != null && index != "error"
       &&  (req.query.status == 'ready'|| req.query.status == 'closed')){
     res.status(200).json(orders.setOrder(req.params.code,req.query.status));
-  } else if (orders.getOrderIndex(req.params.code) == null){
+  } else if (index == null){
     res.status(404).json({ message : 'Source not found'});
   } else {
     res.status(400).json({ message : 'ERROR!'})

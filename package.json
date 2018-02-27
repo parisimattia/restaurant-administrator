@@ -4,7 +4,7 @@
   "description": "'A fake restaurant api administrator'",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha"
   },
   "author": "parisimattia <mattia_parisi@hotmail.it>",
   "license": "MIT",
