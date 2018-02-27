@@ -12,7 +12,7 @@ router.use(function(req,res,next){
 
 router.post('/', function(req,res){
   if (req.body.hasOwnProperty('list') && req.body.hasOwnProperty('bill')){
-      res.status(200).json(orders.newOrder({client : req.query.token, list : req.body.list, bill : req.body.bill}))
+      res.status(201).json(orders.newOrder({client : req.query.token, list : req.body.list, bill : req.body.bill}))
   } else {
     res.status(400).json({message : 'ERROR'})
   }
